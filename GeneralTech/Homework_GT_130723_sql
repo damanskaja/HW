@@ -1,0 +1,39 @@
+        --Output order information for customers not from Germany and not from China
+        SELECT *
+        FROM Orders
+        WHERE CustomerID IN (
+        SELECT CustomerID
+        FROM Customers
+        WHERE Country NOT IN ('Germany', 'China')
+        );
+
+        --Output the two most expensive items from the Beverages category
+        SELECT TOP 2 *
+        FROM Products
+        WHERE CategoryID = 'Beverages'
+        ORDER BY Price DESC;
+
+        --Remove suppliers from China
+        DELETE FROM Suppliers
+        WHERE Country = 'China';
+
+        --Output all customer orders 10 that Federal Shipping will ship
+        SELECT *
+        FROM Orders
+        WHERE CategoryID = 10 AND ShipperID = 'Federal Shipping';
+
+        --Take out the two most expensive beverages from UK
+        SELECT TOP 2 *
+        FROM Products
+        WHERE CategoryID = 'Beverages' AND SupplierID IN (
+        SELECT SupplierID
+        FROM Suppliers
+        WHERE Country = 'UK'
+        )
+        ORDER BY Price DESC;
+
+        --Output the Beverages SupplierCountry
+        SELECT DISTINCT Country
+        FROM Suppliers
+        JOIN Products ON SupplierID = SupplierID
+        WHERE CategoryID = 'Beverages';
