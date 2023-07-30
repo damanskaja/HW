@@ -1,0 +1,39 @@
+1.How to reject changes to a file(s) in the work directory?
+	git restore <file_name>
+
+2.How to return a file from the index to the work directory?
+	git reset HEAD <file_name>
+	git checkout <file_name>
+
+3.How to cancel an erroneous commit ?
+	git reset HEAD^
+
+4.How to correct an erroneous commit after sending it to gitHub?
+	git reset HEAD^
+	git push --force
+
+5.How to create a new branch and switch to it?
+	git checkout -b <new_branch_name>
+
+6.What is the difference between fast-forward merge and non fast-forward merge?
+	non fast-forward merge create commit message
+	fast-forward merge dont create commit message
+        
+
+7.When a branch merge conflict can occur, how can I resolve it?
+	searching in file where you have a conflict for this markers
+		>>>>>>>>>
+		remote change
+		<<<<<<<<<
+		local change
+		=========
+	delete this change which should be removed and left this which should keept
+	choose code which should be keeped and continue the merge process
+	git add <file_name>
+	git merge --continue
+
+8.Can a branch be deleted? How? 
+	deletes a branch if only locally
+	git branch -d <branch_name>
+	deletes a branch also if not merged
+	git branch -D <branch_name>
