@@ -71,7 +71,7 @@
 -- t2.username
 -- from streams t1
 -- inner join users t2
--- on t1.author_id = t2.user_id
+-- on t1.author_id = t2.user_id;
 
 -- 4)
 -- Display users who have'nt streams;
